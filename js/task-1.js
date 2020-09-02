@@ -1,7 +1,28 @@
-const repeatLog = function (n) {
-  for (let i = 0; i < n; i += 1) {
-    console.log(i);
-  }
+/*Задание 1
+Расставь отсутствующие this в методах объекта account.*/
+
+const account = {
+  owner: 'Mango',
+  balance: 24000,
+  discount: 0.1,
+  orders: ['order-1', 'order-2', 'order-3'],
+  changeDiscount(value) {
+    discount = value;
+  },
+  showOrders() {
+    return orders;
+  },
+  addOrder(cost, order) {
+    balance -= cost;
+    orders.push(order);
+  },
 };
 
-repeatLog(5);
+account.changeDiscount(0.15);
+console.log(account.discount); // 0.15
+
+console.table(account.showOrders()); // ['order-1', 'order-2', 'order-3']
+
+account.addOrder(5000, 'order-4');
+console.log(account.balance); // 19000
+console.table(account.showOrders()); // ['order-1', 'order-2', 'order-3', 'order-4']
