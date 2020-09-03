@@ -17,9 +17,8 @@ Callback функция и метод push
      cb вернет true. */
 
 const isUniq = (element, index, arr) => arr.indexOf(element) === index;
-console.log(isUniq);
+
 const isEven = element => element % 2 === 0;
-console.log(isEven);
 
 function filterArray(array, cb) {
   'use strict';
@@ -27,10 +26,10 @@ function filterArray(array, cb) {
   for (let i = 0; i < array.length; i += 1) {
     const element = array[i];
     const index = i;
-    if (cb === true) {
-      numbers.push(array[i]);
-    }
     // Write code under this line
+    if (cb(array[i], i, array)) {
+      numbers.push(element);
+    }
   }
   return numbers;
 }
